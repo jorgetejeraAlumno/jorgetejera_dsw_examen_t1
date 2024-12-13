@@ -12,11 +12,15 @@
         @if($messages->isEmpty())
             <p>No hay mensajes en la base de datos</p>
         @else
-            <ul>
-                @foreach($messages as $message)
-                    <li>{{ $message->text }},<img src="{{$message['image']}}" alt="sin imagen"></li>
-                @endforeach
-            </ul>
+        @foreach ($messages as $message)
+            <form action="{{route('eliminarMensaje',$message->id)}}" method="delete">
+                @csrf
+                @method('DELETE')
+                <label for="mensaje">{{$message->text}}</label>
+                <input type="checkbox" name="mensaje" id="" value="{{$message->id}}">
+        @endforeach
+                <button type="submit">Eliminar</button>
+            </form>
         @endif
     </div>
 </body>

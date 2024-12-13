@@ -15,6 +15,7 @@ class MessagesTableSeeder extends Seeder
         $messages = [
             [
                 "text" => "Ya puedes hacer el examen",
+                "image"=>"{{asset('storage/file.png')}}",
             ],
             [
                 "text" => "Suerte!",
